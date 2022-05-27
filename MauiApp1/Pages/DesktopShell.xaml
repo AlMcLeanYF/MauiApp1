@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:MauiApp1.Pages"
+             FlyoutBehavior="Locked"
+             xmlns:viewmodels="clr-namespace:MauiApp1.ViewModels"
+             x:DataType="viewmodels:ShellViewModel"
+             x:Class="MauiApp1.Pages.DesktopShell"
+             Title="DesktopShell">
+    
+    <Shell.FlyoutHeader>
+        <Grid>
+            <Image Source="{AppThemeBinding Dark=logo_color_horizontal_darkmode.png,Light=logo_header_horizontal.png}"
+                   SemanticProperties.Description=".NET Podcast application logo"
+                   HeightRequest="142"
+                   VerticalOptions="Center"
+                   WidthRequest="230"
+                   HorizontalOptions="Center" />
+        </Grid>
+    </Shell.FlyoutHeader>
+
+    <FlyoutItem Title="{Binding MainPage.Title}"
+                Icon="{AppThemeBinding Light=discover.png, Dark=discover_dark.png}">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate pages:MainPage}"/>
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="{Binding SecondPage.Title}"
+                Icon="{AppThemeBinding Light=subscriptions.png, Dark=subscriptions_dark.png}">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate pages:SecondPage}" />
+        </Tab>
+    </FlyoutItem>
+</Shell>
